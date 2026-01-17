@@ -11,7 +11,7 @@
 
         gtag('config', 'G-NQQTQ8V6YH');
     </script>
-    <title>Ach Residence Home</title>
+    <title>Ach Residence - Home</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
             AchResidence
         </div>
 
-        <div class="burger-icon" onclick="toggleMobileMenu()">
+        <div class="burger-icon" onclick="toggleMobileMenu()" style="font-size: 30px;">
             <i class="fa-solid fa-bars"></i>
         </div>
 
@@ -59,8 +59,8 @@
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
 
         <div class="hero-content">
-            <h1 style="font-size: 4rem;" data-key="hero_title">Bine ai venit</h1>
-            <p style="font-size: 1.5rem;" data-key="hero_subtitle">Descoperă locația noastră unică</p>
+            <h1 data-key="hero_title">Bine ai venit</h1>
+            <p data-key="hero_subtitle">Descoperă locația noastră unică</p>
         </div>
     </div>
 
@@ -78,10 +78,6 @@
         function updateSlider() {
             // Mutăm containerul cu procentaje (0%, -100%, -200%)
             slidesContainer.style.transform = `translateX(-${slideIndex * 100 / totalSlides}%)`;
-            // Deoarece containerul are width 300%, fiecare slide e 1/3, deci logica CSS e un pic diferită.
-            // Mai simplu: containerul e 300%. Mutăm cu -33.33% pt slide 2? 
-            // Nu, am setat width container 300%. Un slide are 100vw.
-            // Deci mutăm cu: slideIndex * 100vw.
             slidesContainer.style.transform = `translateX(-${slideIndex * 100}vw)`;
         }
 
