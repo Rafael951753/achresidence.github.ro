@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQQTQ8V6YH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NQQTQ8V6YH');
+    </script>
+    <title>Ach Rezidence - About</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo"
+            style="color: white; font-size: 24px; font-weight: bold; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+            AchResidence
+        </div>
+
+          <div class="burger-icon" onclick="toggleMobileMenu()" style="font-size: 30px;">
+    <i class="fa-solid fa-bars"></i>
+</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" data-key="home">Acasă</a></li>
+            <li><a href="about.html" data-key="about">Despre noi</a></li>
+             <li><a href="gallery.html" data-key="gallery">Galerie foto</a></li>
+            <li><a href="activities.html" data-key="activities">Activități</a></li>
+            <li><a href="contact.html" data-key="contact">Contact</a></li>
+            <li><a href="reserve.html" class="btn-reserve" data-key="reserve">Rezervă acum</a></li>
+
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLanguage('ro')">RO</button>
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            </div>
+        </ul>
+    </nav>
+    <div class="about-photo">
+        <div class="hero-content">
+            <h1  data-key="gallery_title">Galerie foto</h1>
+            <p  data-key="gallery_subtitle">Cateva poze din locatia noastra</p>
+        </div>
+    </div>
+
+
+
+    <script>
+        // JS Simplu pentru un efect fin de apariție la încărcare
+        document.addEventListener("DOMContentLoaded", () => {
+            const content = document.querySelector('.about-section');
+            content.style.opacity = '0';
+            content.style.transform = 'translateY(20px)';
+            content.style.transition = 'opacity 1s ease, transform 1s ease';
+
+            setTimeout(() => {
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+
+
+    <script src="script.js"></script>
+
+
+    <section class="gallery-section">
+    <div class="container">
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Interior Villa" onclick="openLightbox(this)">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Exterior" onclick="openLightbox(this)">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Camera Living" onclick="openLightbox(this)">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Baie" onclick="openLightbox(this)">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Detaliu Decor" onclick="openLightbox(this)">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Bucatarie" onclick="openLightbox(this)">
+                <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close-lightbox" onclick="closeLightbox(event)">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="caption"></div>
+</div>
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-content">
+
+                <div class="footer-column logo-section">
+                    <img>
+                    <h1 class="logo" style="font-size: 40px;">AchResidence</h1>
+
+                    <p data-key="footer_desc">Sloganul companiei tale sau o scurtă descriere despre ceea ce faceți.</p>
+
+                    <h2 style="margin-top:20px;" data-key="footer_social_title">Ne găsești și în social media</h2>
+
+                    <div id="sc-box1">
+                        <div id="facebook1">
+                            <a href="https://www.facebook.com/profile.php?id=100011245302227&locale=ro_RO"
+                                target="_blank">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                        <div id="instagram1">
+                            <a href="https://www.instagram.com/cezar_ces/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-column menu-section">
+                    <h3 data-key="footer_menu_title">Meniu Rapid</h3>
+                    <ul>
+                        <li><a href="index.html" data-key="home">Acasă</a></li>
+                        <li><a href="about.html" data-key="about">Despre noi</a></li>
+                             <li><a href="gallery.html" data-key="gallery">Galerie foto</a></li>
+                        <li><a href="activities.html" data-key="activities">Activități</a></li>
+                        <li><a href="contact.html" data-key="contact">Contact</a></li>
+                        <li><a href="reserve.html" data-key="reserve">Rezervă acum</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column map-section">
+                    <h3 data-key="footer_map_title">Unde ne aflăm?</h3>
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps?q=46.3767332,26.9646146&z=17&output=embed"
+                            style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p data-key="footer_rights">© 2026 Achresidence. Toate drepturile rezervate.</p>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+
+</html>

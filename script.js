@@ -17,6 +17,10 @@ const translations = {
         home: "Acasă", about: "Despre noi", activities: "Activități", contact: "Contact", reserve: "Rezervă acum",
         hero_title: "Bine ai venit", hero_subtitle: "Descoperă locația noastră unică",
 
+        gallery:"Galerie foto",
+        gallery_title:"Galerie foto",
+        gallery_subtitle:"Cateva poze din locatia noastra",
+
         // --- ABOUT SECTION (Gheorghe Doja) ---
         about_loc_subtitle: "Gheorghe Doja, Bacău",
         about_main_title: "Locul unde distracția se simte ca acasă",
@@ -80,7 +84,9 @@ const translations = {
         // --- Navbar & Hero ---
         home: "Home", about: "About Us", activities: "Activities", contact: "Contact", reserve: "Book Now",
         hero_title: "Welcome", hero_subtitle: "Discover our unique location",
-
+gallery:"Foto gallery",
+gallery_title:"Foto gallery",
+gallery_subtitle:"Some photo from our location",
         // --- ABOUT SECTION ---
         about_loc_subtitle: "Gheorghe Doja, Bacău",
         about_main_title: "The place where fun feels like home",
@@ -442,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. CARUSEL RECENZII - INFINITE LOOP LOGIC
+   // 7. CARUSEL RECENZII - INFINITE LOOP LOGIC + SWIPE
     const track = document.getElementById('reviewsTrack');
     if (track) {
         // Așteptăm să se încarce totul
@@ -455,29 +461,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if(slides.length === 0) return;
 
             // CONFIGURARE CLONE
-            // Clonăm primele 3 și ultimele 3 carduri pentru efectul infinit
             const clonesCount = 3; 
             const firstClones = slides.slice(0, clonesCount).map(slide => slide.cloneNode(true));
             const lastClones = slides.slice(-clonesCount).map(slide => slide.cloneNode(true));
 
             // Adăugăm clonele în DOM
             firstClones.forEach(clone => {
-                clone.classList.add('clone-slide'); // clasă pt debugging
+                clone.classList.add('clone-slide'); 
                 track.appendChild(clone);
             });
             lastClones.reverse().forEach(clone => {
-                clone.classList.add('clone-slide');
+                clone.classList.add('clone-slide'); 
                 track.prepend(clone);
             });
 
             // Re-selectăm toate slide-urile (inclusiv clonele)
             const allSlides = Array.from(track.children);
             
-            // Setăm indexul de start (sărim peste clonele de la început)
+            // Setăm indexul de start
             let currentIndex = clonesCount;
-            let isTransitioning = false; // Blocăm click-urile rapide
+            let isTransitioning = false; 
 
             function updateCarouselPosition(transition = true) {
+                // Calculăm lățimea dinamic (pentru că pe mobil e diferită de desktop)
                 const slideWidth = allSlides[0].getBoundingClientRect().width;
                 const gap = 20; 
                 const moveAmount = (slideWidth + gap) * currentIndex;
@@ -485,60 +491,84 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (transition) {
                     track.style.transition = 'transform 0.5s ease-in-out';
                 } else {
-                    track.style.transition = 'none'; // Fără animație pentru teleportare
+                    track.style.transition = 'none'; 
                 }
                 track.style.transform = `translateX(-${moveAmount}px)`;
             }
 
-            // Inițializare: Ne mutăm la prima poză reală (fără animație)
+            // Inițializare
             updateCarouselPosition(false);
 
-            // EVENT LISTENER: Când se termină animația, verificăm dacă suntem pe o clonă
+            // EVENT LISTENER: Transition End
             track.addEventListener('transitionend', () => {
                 isTransitioning = false;
-                
-                // Dacă am ajuns la clonele de la final -> Sărim la început (Real)
                 if (currentIndex >= allSlides.length - clonesCount) {
                     currentIndex = clonesCount; 
-                    updateCarouselPosition(false); // Teleportare
+                    updateCarouselPosition(false); 
                 }
-                
-                // Dacă am ajuns la clonele de la început -> Sărim la final (Real)
                 if (currentIndex < clonesCount) {
                     currentIndex = allSlides.length - (clonesCount * 2); 
-                    updateCarouselPosition(false); // Teleportare
+                    updateCarouselPosition(false); 
                 }
             });
 
-            // BUTON NEXT
-            if (nextButton) {
-                nextButton.addEventListener('click', () => {
-                    if (isTransitioning) return;
-                    isTransitioning = true;
-                    currentIndex++;
-                    updateCarouselPosition(true);
-                });
-            }
+            // Funcții de navigare
+            const goNext = () => {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex++;
+                updateCarouselPosition(true);
+            };
 
-            // BUTON PREV
-            if (prevButton) {
-                prevButton.addEventListener('click', () => {
-                    if (isTransitioning) return;
-                    isTransitioning = true;
-                    currentIndex--;
-                    updateCarouselPosition(true);
-                });
-            }
+            const goPrev = () => {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex--;
+                updateCarouselPosition(true);
+            };
+
+            // BUTOANE CLICK
+            if (nextButton) nextButton.addEventListener('click', goNext);
+            if (prevButton) prevButton.addEventListener('click', goPrev);
 
             // Recalculare la resize
             window.addEventListener('resize', () => {
-                // La resize e mai sigur să resetăm la un element real ca să nu se strice matematica
                 track.style.transition = 'none';
                 updateCarouselPosition(false);
             });
 
+            // ==========================================
+            // LOGICA NOUĂ PENTRU SWIPE (TELEFON)
+            // ==========================================
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            track.addEventListener('touchstart', (e) => {
+                // Reținem unde a pus utilizatorul degetul
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            track.addEventListener('touchend', (e) => {
+                // Reținem unde a ridicat utilizatorul degetul
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+
+            function handleSwipe() {
+                // Dacă a tras spre stânga (swipe left) -> Mergem înainte (Next)
+                if (touchStartX - touchEndX > 50) {
+                    goNext();
+                }
+                // Dacă a tras spre dreapta (swipe right) -> Mergem înapoi (Prev)
+                if (touchEndX - touchStartX > 50) {
+                    goPrev();
+                }
+            }
+
         }, 100);
     }
+
+    
 
 });
 
@@ -555,6 +585,45 @@ window.addEventListener('scroll', function() {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
+    }
+});
+
+
+
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const captionText = document.getElementById("caption");
+    
+    // Setăm imaginea și textul
+    lightbox.style.display = "flex";
+    lightboxImg.src = imgElement.src;
+    captionText.innerHTML = imgElement.alt; // Ia textul din atributul 'alt'
+    
+    // Oprim scroll-ul paginii în spate
+    document.body.style.overflow = "hidden";
+}
+
+function closeLightbox(event) {
+    // Închide doar dacă dai click pe fundal (id=lightbox) sau pe butonul X (class=close-lightbox)
+    // Astfel, dacă dai click pe poză, NU se închide.
+    if (event.target.id === 'lightbox' || event.target.classList.contains('close-lightbox')) {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.style.display = "none";
+        
+        // Repornim scroll-ul paginii
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Închidere cu tasta ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        const lightbox = document.getElementById("lightbox");
+        if (lightbox.style.display === "flex") {
+            lightbox.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
     }
 });
 

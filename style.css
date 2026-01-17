@@ -1736,8 +1736,123 @@ p {
 }
 
 
+/* --- GALERIE FOTO --- */
+.gallery-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Această linie face magia: creează coloane automat. 
+       Pe mobil va fi 1 coloană, pe tabletă 2, pe PC 3 sau 4 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Spațiu între poze */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    aspect-ratio: 4/3; /* Păstrează toate pozele la aceeași proporție */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Taie poza ca să umple cadrul fără să o deformeze */
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+/* Efect Hover */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Mărește puțin poza la hover */
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    /* --- ADAUGĂ ACEASTĂ LINIE --- */
+    pointer-events: none; 
+    /* Asta permite click-ului să "treacă prin" lupă și să ajungă la poză */
+}
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item .overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+/* --- LIGHTBOX (MODAL) --- */
+.lightbox {
+    display: none; /* Ascuns implicit */
+    position: fixed;
+    z-index: 2001; /* Peste navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    animation: zoomIn 0.3s;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-lightbox:hover {
+    color: #bbb;
+}
+
+#caption {
+    margin: 15px 0;
+    color: #ccc;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Animații simple */
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes zoomIn { from {transform: scale(0.8);} to {transform: scale(1);} }
+
+
 /* --- Stiluri pentru Mobil (sub 600px) --- */
 @media screen and (max-width: 1000px) {
+
+    
     .burger-icon {
         display: block;
         margin-left: 10px;
@@ -1864,4 +1979,26 @@ p {
     padding: 20px;
     /* Opțional: poți micșora puțin navbar-ul la scroll */
 }
+
+    .carousel-slide {
+        /* Pe mobil, un slide ocupă 100% din lățime */
+        min-width: 100%; 
+    }
+
+    .carousel-wrapper {
+        padding: 0; /* Scoatem padding-ul lateral ca să avem mai mult loc */
+    }
+
+    /* Ascundem săgețile pe mobil pentru că vom folosi SWIPE */
+    .carousel-btn {
+        display: none; 
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .gallery-grid {
+        grid-template-columns: 2fr; /* O singură coloană pe mobil */
+    }
 }
