@@ -1994,6 +1994,19 @@ p {
         display: none; 
     }
 
+
+.hero-content {
+        /* 1. Lărgim containerul să ocupe aproape tot ecranul */
+        width: 80%; 
+        
+        /* 2. Corectăm centrarea pentru mobil */
+        /* Setăm translate pe X la -50% pentru a fi perfect centrat când avem width mare */
+        transform: translate(-50%, -20%); 
+        
+        /* 3. Ajustăm poziția de sus (opțional, dacă e prea jos) */
+        top: 30%; 
+     
+    }
 }
 
 @media screen and (max-width: 600px) {
