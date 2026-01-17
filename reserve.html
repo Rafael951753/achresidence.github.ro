@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQQTQ8V6YH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NQQTQ8V6YH');
+    </script>
+    <title>Ach Rezidence Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/ro.js"></script>
+<style>
+  /* Opțional: Stilizează puțin inputurile să arate bine */
+  .date-picker {
+    background-color: #fff;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+    <div class="logo" style="color: white; font-size: 24px; font-weight: bold; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+        AchResidence
+    </div>
+
+    <div class="burger-icon" onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html" data-key="home">Acasă</a></li>
+        <li><a href="about.html" data-key="about">Despre noi</a></li>
+        <li><a href="activities.html" data-key="activities">Activități</a></li>
+        <li><a href="contact.html" data-key="contact">Contact</a></li>
+        <li><a href="reserve.html" class="btn-reserve" data-key="reserve">Rezervă acum</a></li>
+        
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLanguage('ro')">RO</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+    </ul>
+</nav>
+
+    <div class="about-photo">
+      <div class="hero-content">
+    <h1 style="font-size: 4rem;" data-key="booking_title">
+  Rezervă acum
+</h1>
+
+<p style="font-size: 1.5rem;" data-key="booking_subtitle">
+  Alege perioada dorită și fă primul pas către o vacanță de neuitat
+</p>
+
+        </div>
+    </div>
+
+<div class="booking-container">
+
+
+  <div class="right-column">
+    <form id="contactForm">
+
+      
+      <input type="text" name="nume" placeholder="Nume" required>
+      <input type="text" name="prenume" placeholder="Prenume" required>
+      
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="telefon" placeholder="Telefon" required>
+      
+      <input type="text" id="checkin" name="data_checkin" class="date-picker" placeholder="Data Check-in" required>
+      <input type="text" id="checkout" name="data_checkout" class="date-picker" placeholder="Data Check-out" required>
+      
+      <input type="number" name="numar_oaspeti" placeholder="Număr oaspeți" required min="1">
+
+      <label class="gdpr">
+        <input style="width: 20px; margin-left: 10px;" type="checkbox" required>
+        <span>Sunt de acord cu <a href="gdpr.html" target="_blank">Politica de Confidențialitate</a></span>
+      </label>
+
+      <button type="submit" id="btnSubmit">Trimite Cererea</button>
+    </form>
+  </div>
+
+
+  
+  <div class="left-column">
+    <h3 style="margin-bottom: 20px;">Disponibilitate</h3>
+
+   <div class="calendar-legend">
+    <div><span class="color-box free"></span> Liber</div>
+    <div><span class="color-box part-in"></span> Check-in</div>
+    <div><span class="color-box part-out"></span> Check-out</div>
+    <div><span class="color-box full"></span> Ocupat</div>
+</div>
+
+    <div id="calendarLoader" class="loader"></div>
+
+    <div id="availabilityCalendar"></div>
+  </div>
+
+</div>
+
+<div id="customModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-icon">✔</div>
+    <h3>Cerere Trimisă!</h3>
+    <p>Mulțumim! Am înregistrat solicitarea ta. Te vom contacta în curând pentru confirmare.</p>
+    <button class="modal-btn-close" onclick="closeModal()">Închide</button>
+  </div>
+</div>
+
+<div id="errorModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-icon" style="background-color: #ffffff;">!</div>
+    <h3>Eroare formular!</h3>
+    <p>Te rugăm să selectezi datele de Check-in și Check-out!</p>
+    <button class="modal-btn-close-error">Închide</button>
+  </div>
+</div>
+
+
+
+<!--
+        <div class="form-wrapper">
+  <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSfCAYs-AT9ryh9de1aJtEjl8mD7T35pF1nDX94rTtVYl1IR5w/viewform?embedded=true"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0">
+  </iframe>
+</div>-->
+
+
+
+
+
+<script src="script.js"></script>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+
+        <div class="footer-content">
+
+            <div class="footer-column logo-section">
+                <img > 
+                    <h1 class="logo" style="font-size: 40px;">AchResidence</h1>
+                
+                <p data-key="footer_desc">Sloganul companiei tale sau o scurtă descriere despre ceea ce faceți.</p>
+                
+                <h2 style="margin-top:20px;" data-key="footer_social_title">Ne găsești și în social media</h2>
+                
+                <div id="sc-box1">
+                    <div id="facebook1">
+                        <a href="https://www.facebook.com/profile.php?id=100011245302227&locale=ro_RO" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                    <div id="instagram1">
+                        <a href="https://www.instagram.com/cezar_ces/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-column menu-section">
+                <h3 data-key="footer_menu_title">Meniu Rapid</h3>
+                <ul>
+                    <li><a href="index.html" data-key="home">Acasă</a></li>
+                    <li><a href="about.html" data-key="about">Despre noi</a></li>
+                    <li><a href="activities.html" data-key="activities">Activități</a></li>
+                    <li><a href="contact.html" data-key="contact">Contact</a></li>
+                    <li><a href="reserve.html" data-key="reserve">Rezervă acum</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column map-section">
+                <h3 data-key="footer_map_title">Unde ne aflăm?</h3>
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps?q=46.3767332,26.9646146&z=17&output=embed"
+                        style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p data-key="footer_rights">© 2026 Achresidence. Toate drepturile rezervate.</p>
+        </div>
+
+    </div>
+</footer>
+</body>
+
+
+</html>

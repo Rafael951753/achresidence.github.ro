@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQQTQ8V6YH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NQQTQ8V6YH');
+    </script>
+    <title>Ach Rezidence Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+</head>
+
+<body>
+
+    
+    <nav class="navbar">
+    <div class="logo" style="color: white; font-size: 24px; font-weight: bold; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+        AchResidence
+    </div>
+
+    <div class="burger-icon" onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html" data-key="home">Acasă</a></li>
+        <li><a href="about.html" data-key="about">Despre noi</a></li>
+        <li><a href="activities.html" data-key="activities">Activități</a></li>
+        <li><a href="contact.html" data-key="contact">Contact</a></li>
+        <li><a href="reserve.html" class="btn-reserve" data-key="reserve">Rezervă acum</a></li>
+        
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLanguage('ro')">RO</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+    </ul>
+</nav>
+    <div class="about-photo">
+      <div class="hero-content">
+            <h1 style="font-size: 4rem;" data-key="activities_title">Activitatile noastre</h1>
+            <p style="font-size: 1.5rem;" data-key="activities_subtitle">Nenumarate moduri de a te relaxa si distra</p>
+        </div>
+    </div>
+
+
+   
+
+   <section class="activity-section">
+    <div class="content-container">
+        <div class="text-wrapper">
+            <h2 data-key="act_tub_title">Ciubăr</h2>
+            <p data-key="act_tub_desc">O baie fierbinte sub cerul liber este rețeta perfectă pentru relaxare totală. Apa caldă te va face să uiți de grijile cotidiene, oferindu-ți un moment de liniște absolută în mijlocul naturii.</p>
+        </div>
+    
+        <div class="image-wrapper">
+            <video autoplay muted loop playsinline width="100%">
+                <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4">
+                Browser-ul tău nu suportă video.
+            </video>
+        </div>
+    </div>
+</section>
+
+<section class="activity-section">
+    <div class="content-container">
+        <div class="text-wrapper">
+             <h2 data-key="act_cauldron_title">Ceaun Tradițional</h2>
+             <p data-key="act_cauldron_desc">Gustul mâncării gătite lent la foc de lemne este inconfundabil. Pregătește cele mai delicioase rețete tradiționale în aer liber. Fumul, aromele și compania celor dragi transformă gătitul într-o experiență memorabilă.</p>
+        </div>
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&q=80&w=800" alt="Ping Pong">
+        </div>
+    </div>
+</section>
+
+<section class="activity-section">
+    <div class="content-container">
+        <div class="text-wrapper">
+             <h2 data-key="act_pingpong_title">Masă de Ping-Pong</h2>
+             <p data-key="act_pingpong_desc">Ești gata de competiție? Organizează un campionat cu prietenii și bucură-te de mișcare și distracție. Masa noastră profesională este pregătită pentru meciuri intense și multe râsete.</p>
+        </div>
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&q=80&w=800" alt="Ping Pong">
+        </div>
+    </div>
+</section>
+
+<section class="activity-section">
+    <div class="content-container">
+        <div class="text-wrapper">
+             <h2 data-key="act_bbq_title">Zona de Grătar</h2>
+             <p data-key="act_bbq_desc">Nicio ieșire la cabană nu e completă fără un grătar încins. Spațiul este echipat complet cu ustensile și lemne, astfel încât tu doar să aduci ingredientele preferate și voia bună.</p>
+        </div>
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&q=80&w=800" alt="Ping Pong">
+        </div>
+    </div>
+</section>
+
+<section class="activity-section">
+    <div class="content-container">
+        <div class="text-wrapper">
+             <h2 data-key="act_music_title">Muzică și Petrecere</h2>
+             <p data-key="act_music_desc">Dă volumul mai tare! Sistemul nostru audio performant este pregătit să țină ritmul petrecerii până în zori. Creează playlist-ul perfect și bucură-te de o atmosferă vibrantă.</p>
+        </div>
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800" alt="Petrecere">
+        </div>
+    </div>
+</section>
+
+   <div class="cta-section-new">
+    <div class="cta-flex-container">
+        <div class="cta-heading">
+             <h2 data-key="cta_title">Ti-am atras atentia?</h2>
+        </div>
+      <div class="cta-text">
+             <p data-key="cta_text">Evadează din cotidian și lasă-te învăluit de liniștea rurală. Te așteptăm cu experiențe autentice, confort deplin și amintiri care abia așteaptă să fie create.</p>
+        </div>
+        <div class="cta-button-wrapper">
+             <a href="reserve.html" class="cta-button-new" data-key="cta_btn">REZERVĂ ACUM</a>
+        </div>
+    </div>
+</div>
+
+    <script>
+        // --- JAVASCRIPT ---
+        const observerOptions = {
+            threshold: 0.2 // Se declanșează animația mai repede
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Selectăm toate secțiunile
+        const sections = document.querySelectorAll('.activity-section');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+<script src="script.js"></script>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+
+        <div class="footer-content">
+
+            <div class="footer-column logo-section">
+                <img > 
+                    <h1 class="logo" style="font-size: 40px;">AchResidence</h1>
+                
+                <p data-key="footer_desc">Sloganul companiei tale sau o scurtă descriere despre ceea ce faceți.</p>
+                
+                <h2 style="margin-top:20px;" data-key="footer_social_title">Ne găsești și în social media</h2>
+                
+                <div id="sc-box1">
+                    <div id="facebook1">
+                        <a href="https://www.facebook.com/profile.php?id=100011245302227&locale=ro_RO" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                    <div id="instagram1">
+                        <a href="https://www.instagram.com/cezar_ces/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-column menu-section">
+                <h3 data-key="footer_menu_title">Meniu Rapid</h3>
+                <ul>
+                    <li><a href="index.html" data-key="home">Acasă</a></li>
+                    <li><a href="about.html" data-key="about">Despre noi</a></li>
+                    <li><a href="activities.html" data-key="activities">Activități</a></li>
+                    <li><a href="contact.html" data-key="contact">Contact</a></li>
+                    <li><a href="reserve.html" data-key="reserve">Rezervă acum</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column map-section">
+                <h3 data-key="footer_map_title">Unde ne aflăm?</h3>
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps?q=46.3767332,26.9646146&z=17&output=embed"
+                        style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p data-key="footer_rights">© 2026 Achresidence. Toate drepturile rezervate.</p>
+        </div>
+
+    </div>
+</footer>
+</body>
+
+
+</html>

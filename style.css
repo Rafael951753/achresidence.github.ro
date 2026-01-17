@@ -1,0 +1,1548 @@
+/* Resetare de bază */
+   
+
+     /*===========================MENIU===============================*/
+    /* --- RESETĂRI DE BAZĂ --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; 
+          font-family: 'Segoe UI', sans-serif; }
+        body { overflow-x: hidden; }
+
+        /* --- STILURI SLIDER (FUNDALUL) --- */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Tot ecranul */
+            overflow: hidden;
+             
+        }
+
+        .about-photo {
+            position: relative;
+            width: 100%;
+            height: 50vh; /* Tot ecranul */
+            overflow: hidden;
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('gallery/p1.jpg');
+      background-size: cover;
+      background-position: center;
+        }
+
+        .slides-container {
+            display: flex;
+            width: 300%; /* 3 poze x 100% fiecare */
+            height: 100%;
+            transition: transform 0.5s ease-in-out; /* Animația de alunecare */
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* --- AICI PUI POZELE TALE --- */
+        .slide:nth-child(1) {
+           
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('gallery/p1.jpg');
+        }
+        .slide:nth-child(2) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('gallery/p2.avif');
+        }
+        .slide:nth-child(3) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('gallery/p3.webp');
+        }
+        /* Nota: "linear-gradient" este un filtru întunecat ca să se vadă scrisul alb */
+
+
+        /* --- BUTOANE NAVIGARE MANUALĂ (SĂGEȚI) --- */
+        .prev, .next {
+            position: absolute;
+            display: flexbox;
+            justify-content: center;
+            width: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #00000000;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 24px;
+          
+            margin: 0 20px;
+            transition: background 0.3s;
+        }
+      
+        .prev {left: 20px; /* Lipit de stânga */ }
+        .next { right: 20px; /* Lipit de dreapta */ }
+
+        /* --- STILURI MENIU (IDENTICE CU CELE ANTERIOARE) --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: transparent; 
+            z-index: 1000; /* Peste slider */
+
+            /* Adaugă asta pentru efect lin */
+    transition: background-color 0.3s ease, padding 0.3s ease;
+        }
+
+
+        /* Aceasta este clasa care se activează după scroll */
+.navbar.scrolled {
+    background-color: #292322d0; /* Culoarea cerută */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Opțional: o mică umbră */
+    padding: 15px 50px; /* Opțional: poți micșora puțin navbar-ul la scroll */
+}
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 16px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* Umbră pt lizibilitate pe poze */
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover { color: #ffcc00;; }
+
+        .btn-reserve {
+            background-color: #ffcc00;
+            color: #333 !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold !important;
+            text-shadow: none !important;
+            transition: transform 0.2s ease;
+        }
+        .btn-reserve:hover { transform: scale(1.05); background-color: #e6b800; }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            border-left: 1px solid rgba(255,255,255,0.5);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        .lang-btn {
+            background: none; border: none; color: rgba(255, 255, 255, 0.568);
+            cursor: pointer; font-weight: bold; font-size: 14px;
+        }
+        .lang-btn.active { color: #fff; text-decoration: underline; }
+
+        /* Conținut Centrat pe mijlocul sliderului (Opțional) */
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 5;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+     /*===========================MENIU===============================*/
+
+
+
+
+
+
+
+
+
+
+        
+
+
+          .contact-form {
+            max-width: 400px;
+            background: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        input, textarea, button {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #747e89;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;        }
+
+      
+
+        .success, .error {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .success { color: green; }
+        .error { color: red; }
+
+
+        .whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #25D366;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.whatsapp-button i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe57;
+}
+
+
+
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  max-width: 600px;
+}
+
+.day {
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+
+.booked {
+  background-color: red;
+  color: white;
+}
+
+.free {
+  background-color: #e0ffe0;
+}
+
+/* ==========================FOOTER=================*/
+/* Stiluri Generale Footer */
+.site-footer {
+    background-color: #292322e6; /* Culoarea cerută */
+    color: #ffffff;            /* Text alb */
+    padding-top: 40px;
+    font-family: Arial, sans-serif; /* Sau fontul site-ului tău */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Layout Grid pentru cele 3 coloane */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 coloane egale */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Titluri în footer */
+.site-footer h3 {
+    color: #ffffff;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Stiluri pentru Logo */
+.footer-logo {
+    max-width: 150px; /* Ajustează mărimea logo-ului */
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Stiluri pentru Meniu (Lista) */
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-section ul li {
+    margin-bottom: 10px;
+}
+
+.menu-section ul li a {
+    color: #cccccc; /* Un gri deschis pentru link-uri */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu-section ul li a:hover {
+    color: #ffffff; /* Alb complet la hover */
+    text-decoration: underline;
+}
+
+/* Integrare Harta - Stiluri specifice pentru div-ul tău */
+.map-box {
+            width: 100%;
+            max-width: 400px;   /* dimensiune mică */
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            
+        }
+
+/* Zona de Copyright */
+.footer-bottom {
+    border-top: 1px solid #444; /* Linie de separare subtilă */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+/* Responsive - Pe mobil se pun una sub alta */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr; /* O singură coloană */
+        text-align: center;
+    }
+
+    .map-box iframe {
+        height: 250px; /* Harta puțin mai mare pe mobil */
+    }
+}
+
+
+
+	
+		#sc-box1 {
+            margin-top: 10px;
+    display: flex;
+
+
+    height: 40px;
+    width: auto;
+    font-size: 30px;
+
+}
+
+
+
+#facebook1 {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+    border-radius: 10px;
+
+
+
+}
+
+#facebook1 a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+#facebook1:hover {
+    background-color: rgb(48, 61, 138);
+    color: white;
+    transition: background-color 0.5s ease, color 0.5s ease;
+
+}
+
+
+
+#instagram1 {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+
+
+}
+
+#instagram1 a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+
+#instagram1:hover {
+    background: linear-gradient(to bottom right, #9b2d02, #d3b323);
+    color: white;
+    transition: background-color 0.5s ease, color 1s ease;
+}
+/* ==========================FOOTER=================*/
+
+/*=================== CONTACT  =======================*/
+.contact-details-section {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    overflow: hidden; /* Important pentru animații */
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px; /* Spațiu mai mare între elemente acum că nu avem carduri */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Stilul nou pentru element (fără contur/card) */
+.contact-item {
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    
+    /* Setări inițiale pentru animație (ascuns și coborât) */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* Clasa care activează animația (adăugată prin JS) */
+.contact-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Întârzieri pentru efectul "pe rând" */
+.contact-item:nth-child(1) { transition-delay: 0.1s; } /* Primul apare rapid */
+.contact-item:nth-child(2) { transition-delay: 0.3s; } /* Al doilea puțin mai târziu */
+.contact-item:nth-child(3) { transition-delay: 0.5s; } /* Al treilea ultimul */
+
+
+.contact-icon {
+    font-size: 3.5rem; /* Iconițe puțin mai mari */
+    margin-bottom: 25px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.1); /* Mic efect de zoom la hover pe iconiță */
+}
+
+/* Culori specifice */
+.icon-phone { color: #524040; }
+.icon-whatsapp { color: #25D366; }
+.icon-email { color: #0078D4; }
+
+.contact-item h3 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: #222;
+    font-weight: 600;
+}
+
+.contact-item p {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 1rem;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.contact-item a:not(.whatsapp-chat):hover {
+    color: #e74c3c; /* Culoare accent la hover pentru linkuri simple */
+}
+
+/* Butonul WhatsApp păstrat așa cum ți-a plăcut */
+.whatsapp-chat {
+    background-color: #25D366;
+    color: white !important; /* Text alb */
+    border-radius: 10px; /* Mai rotunjit */
+    padding: 10px 30px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.whatsapp-chat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+}
+
+.email-chat {
+    background-color: #0078D4;
+    color: rgb(255, 255, 255) !important; /* Text alb */
+    border-radius: 10px; /* Mai rotunjit */
+    padding: 10px 30px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.email-chat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}
+/*=================== END CONTACT =======================*/
+
+
+.form-wrapper {
+  max-width: 700px;
+ 
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.form-wrapper iframe {
+  width: 100%;
+  height: 1200px;
+  border-radius: 12px;
+}
+
+
+/*==============formular rezervare ============*/
+/* --- Container Formular --- */
+#contactForm {
+  background: white;
+  max-width: 600px;
+  margin: 40px auto; /* Centrat pe pagină */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Umbră fină */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Două coloane egale */
+  gap: 20px;
+
+}
+
+/* Facem ca anumite câmpuri să ocupe toată lățimea */
+#contactForm input[name="email"],
+#contactForm input[name="telefon"],
+#contactForm input[name="numar_oaspeti"],
+#contactForm .gdpr,
+#contactForm button {
+  grid-column: span 2;
+}
+
+/* --- Stil Input-uri --- */
+#contactForm input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  box-sizing: border-box; /* Important pentru padding */
+}
+
+#contactForm input:focus {
+  outline: none;
+  border-color: #4a90e2; /* Culoare accent (albastru) */
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* --- Stil Buton --- */
+#contactForm button {
+  background-color: #4a90e2; /* Sau culoarea brandului tău */
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+  margin-top: 10px;
+}
+
+#contactForm button:hover {
+  background-color: #357abd;
+}
+
+#contactForm button:active {
+  transform: scale(0.98);
+}
+
+#contactForm button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* --- GDPR Checkbox --- */
+.gdpr {
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gdpr input {
+  width: 30px; /* Checkbox-ul să nu fie lat cât tot rândul */
+  margin: 0;
+}
+.gdpr a {
+  width: 100%;
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+/* --- MODAL DE SUCCES (Pop-up) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* Fundal întunecat transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+.modal-icon {
+  font-size: 50px;
+  color: #4CAF50; /* Verde pentru succes */
+  margin-bottom: 20px;
+}
+
+.modal-btn-close {
+  background-color: #333;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* --- Responsivitate (Mobil) --- */
+@media (max-width: 600px) {
+  #contactForm {
+    grid-template-columns: 1fr; /* O singură coloană pe mobil */
+    padding: 20px;
+    margin: 20px;
+  }
+  #contactForm input, #contactForm button, .gdpr {
+    grid-column: span 1;
+  }
+}
+/*==============formular rezervare ============*/
+
+/*==============activitati===================*/
+
+        .page-header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            background-color: #fff; /* Fundal alb pentru titlu */
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+        .page-header p {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* --- SECȚIUNEA PRINCIPALĂ (BANDA) --- */
+        .activity-section {
+            width: 100%;
+            padding: 80px 0; /* Spațiu sus și jos în interiorul benzii */
+               background-color: #f9f9f9;
+            
+            /* Animație */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+
+        /* Containerul care ține conținutul centrat (max 1100px) */
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        /* --- IMAGINEA --- */
+        .image-wrapper {
+            flex: 1;
+        }
+        .image-wrapper img,
+        .image-wrapper video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* --- TEXTUL --- */
+        .text-wrapper {
+            flex: 1;
+        }
+        .text-wrapper h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .text-wrapper p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        /* --- LOGICA PENTRU CULORI ȘI POZIȚII (ALTERNANȚA) --- */
+
+        /* 1. IMPAR (Odd): 1, 3, 5 -> Fundal ALB */
+        .activity-section:nth-of-type(odd) {
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .activity-section:nth-of-type(odd) .text-wrapper p {
+            color: rgba(0, 0, 0, 0.55); /* Descriere gri transparent */
+        }
+
+        /* 2. PAR (Even): 2, 4 -> Fundal ÎNCHIS (#292322) */
+        .activity-section:nth-of-type(even) {
+            background-color: #292322e6; /* Culoarea cerută de tine */
+            color: #ffffff;            /* Text alb */
+        }
+        
+        /* Inversăm ordinea elementelor doar pe rândurile pare (Zig-Zag) */
+        .activity-section:nth-of-type(even) .content-container {
+            flex-direction: row-reverse;
+        }
+
+        /* Ajustăm descrierea pe fundal negru să fie un alb transparent */
+        .activity-section:nth-of-type(even) .text-wrapper p {
+            color: rgba(255, 255, 255, 0.7); 
+        }
+
+        /* --- CLASA VIZIBILĂ (ANIMATIE) --- */
+        .activity-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+/* --- NOUA SECȚIUNE FINALĂ (STIL NIVALIS) --- */
+        .cta-section-new {
+            /* Fundal puțin mai închis decât #f9f9f9 */
+            background-color: #f0f0f0; 
+            padding: 100px 20px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .cta-flex-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center; /* Centrează vertical elementele */
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        /* Coloana stânga - Titlu */
+        .cta-heading {
+            flex: 1;
+            min-width: 250px;
+        }
+        .cta-heading h2 {
+            font-size: 2.8rem;
+            color: #292322;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* Coloana mijloc - Text */
+        .cta-text {
+            flex: 1.5;
+        }
+        .cta-text p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Coloana dreapta - Buton */
+        .cta-button-wrapper {
+            
+            text-align: right; /* Butonul aliniat la dreapta */
+        }
+
+        .cta-button-new {
+            display: inline-block;
+            background-color: #ffcc00; /* Culoarea ta galbenă */
+            color: #000000; /* Text alb */
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px; /* Stil "pill" (rotunjit) */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap; /* Textul nu se rupe pe două rânduri */
+        }
+
+        .cta-button-new:hover {
+            background-color: #e6b800; /* Puțin mai închis la hover */
+            transform: translateY(-2px);
+        }
+        
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column !important; /* Pe telefon una sub alta */
+                text-align: center;
+                gap: 30px;
+            }
+            .activity-section {
+                padding: 50px 0;
+            }
+            .image-wrapper img {
+                height: 250px;
+            }
+            .text-wrapper h2 {
+                font-size: 2.2rem;
+            }
+        }
+/*===============activitati=================*/
+
+/*============Despre noi====================*/
+/* CSS - Stilurile vizuale */
+        /* Secțiunea Principală */
+        .about-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* Coloana de Text */
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .subtitle {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .text-content h2 {
+            
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        /* Lista de facilități (Grid) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .feature-item span {
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        
+
+        /* Coloana de Imagini (Colaj) */
+        .image-content {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Imaginea mare de jos */
+        .image-grid img:last-child {
+            grid-column: span 2;
+            height: 200px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 40px 20px;
+                flex-direction: column-reverse; /* Imaginile sus pe mobil */
+            }
+            h2 {
+                font-size: 2rem;
+            }
+        }
+/*============Despre noi ===================*/
+
+/*=========== disponibilitate ===*/
+/* =========================================
+   1. LAYOUT GENERAL & RESPONSIVE
+   ========================================= */
+
+/* Containerul Principal care ține ambele elemente */
+.booking-container {
+  display: flex;           /* Activează așezarea flexibilă */
+  flex-wrap: wrap;         /* Permite trecerea pe rând nou pe mobil */
+  gap: 50px;               /* Spațiu între calendar și formular */
+  justify-content: center; /* Centrează tot conținutul pe pagină */
+  align-items: flex-start; /* Aliniere sus */
+  max-width: 1200px;       /* Lățime maximă */
+  margin: 40px auto;       /* Centrare pe mijlocul ecranului */
+  padding: 0 20px;
+}
+
+/* Coloana Stânga (Calendar) */
+.left-column {
+  flex: 1;                 /* Ocupă spațiu egal */
+  min-width: 320px;        /* Să nu fie mai mic de atât (cât calendarul) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* Centrează calendarul și legenda */
+}
+
+/* Coloana Dreapta (Formular) */
+.right-column {
+  flex: 1;                 /* Ocupă spațiu egal */
+  min-width: 300px;        /* Lățime minimă */
+  max-width: 500px;        /* Să nu se lățească prea tare formularul */
+}
+
+/* Stil formular existent */
+#contactForm {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Pe ecrane mici (Telefoane) */
+@media (max-width: 768px) {
+  .booking-container {
+    flex-direction: column; /* Unul sub altul */
+    align-items: center;
+  }
+  .right-column {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   2. LOADER (ROTIȚA DE ÎNCĂRCARE)
+   ========================================= */
+.loader {
+  border: 4px solid #f3f3f3; /* Gri deschis */
+  border-top: 4px solid #b6d7a8; /* Verdele tău */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 30px auto; 
+  display: none; 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =========================================
+   3. STILIZARE CALENDAR (VERTICAL SPLIT)
+   ========================================= */
+
+/* Zilele Libere (Default) -> ALB */
+.flatpickr-day {
+  background: #fff; 
+  border: 1px solid transparent; /* Bordură invizibilă pentru aliniere */
+  color: #393939;
+}
+
+/* --- ZI OCUPATĂ COMPLET (ROȘU ÎNCHIS) --- */
+.flatpickr-day.day-occupied {
+  background-color: #ffcc00 !important; 
+  border: none;
+  color: #000000 !important;
+}
+
+/* --- ZI CHECK-IN (Jumătate Verticală) --- */
+/* Stânga Alb (Liber) -> Dreapta Colorat (Ocupat) */
+.flatpickr-day.day-checkin {
+  background: linear-gradient(to right, #ffffff 50%, #ffcc00 50%) !important;
+  color: #000 !important; /* Text negru pentru contrast pe alb */
+  
+}
+
+/* --- ZI CHECK-OUT (Jumătate Verticală) --- */
+/* Stânga Colorat (Ocupat) -> Dreapta Alb (Liber) */
+.flatpickr-day.day-checkout {
+  background: linear-gradient(to right, #ffcc00 50%, #ffffff 50%) !important;
+  color: #000 !important;
+  
+}
+
+/* =========================================
+   4. LEGENDĂ (Actualizată pentru Vertical)
+   ========================================= */
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.color-box { 
+  width: 20px; 
+  height: 20px; 
+  border: 1px solid #ddd; 
+  display: inline-block; 
+  vertical-align: middle; 
+  margin-right: 5px;
+}
+
+/* Culori Legendă */
+.color-box.free { background: #fff; }
+.color-box.full { background: #ffcc00; }
+
+/* Legenda Check-in (Stânga alb / Dreapta colorat) */
+.color-box.part-in { 
+    background: linear-gradient(to right, #ffffff 50%, #ffcc00 50%); 
+}
+
+/* Legenda Check-out (Stânga colorat / Dreapta alb) */
+.color-box.part-out { 
+    background: linear-gradient(to right, #ffcc00 50%, #ffffff 50%); 
+}
+/*============= disponibilitate ==========*/
+
+/* Aici "îinveți" browserul cum arată fontul */
+@font-face {
+    font-family: 'Saginatha';
+    /* Atenție la calea către fișier! Verifică extensia (.ttf sau .otf) */
+    src: url('fonts/Segatha.ttf') format('opentype');
+    /* SAU, dacă ai .ttf, folosești: */
+    /* src: url('fonts/Saginatha.ttf') format('truetype'); */
+}
+
+/* Aici îl folosești */
+.logo {
+    font-family: 'Saginatha', sans-serif; 
+    /* 'sans-serif' este rezerva, în caz că nu se încarcă Saginatha */
+}
+
+
+/*=====================HOME=======================*/
+/* --- STILURI GENERALE PENTRU SECȚIUNI NOI --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: hidden; /* Previne scroll orizontal nedorit în timpul animației */
+}
+
+/* --- SECȚIUNE PREZENTARE --- */
+.info-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.info-text {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.info-text h2 {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.info-text p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature-box {
+    flex: 1;
+    min-width: 280px;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Doar pentru hover */
+}
+
+
+.feature-box i {
+    font-size: 3rem;
+    color: #d4af37; /* Auriu */
+    margin-bottom: 20px;
+}
+
+.feature-box h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+/* --- SECȚIUNE STATISTICI (COUNTERS) --- */
+.stats-section {
+    position: relative;
+    /* Imagine fundal - poți schimba link-ul cu o poză de la locația ta */
+    background: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80') no-repeat center center/cover;
+    background-attachment: fixed; /* Efect Parallax */
+    padding: 100px 0;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.stats-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Strat negru transparent */
+    z-index: 1;
+}
+
+.stats-grid {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.stat-item i {
+    font-size: 3.5rem;
+    color: #ffcc00;
+    margin-bottom: 15px;
+}
+
+.counter {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 10px 0;
+    font-family: sans-serif; /* Font simplu pentru cifre clare */
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+/* --- ANIMATII SCROLL (Slide In) --- */
+
+/* Starea inițială (invizibil) */
+.hidden-element {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1s ease-out; /* Durata animației */
+}
+
+/* Direcții */
+.from-left {
+    transform: translateX(-100px); /* Vine din stânga */
+}
+
+.from-right {
+    transform: translateX(100px); /* Vine din dreapta */
+}
+
+.from-bottom {
+    transform: translateY(50px); /* Vine de jos */
+}
+
+/* Starea finală (vizibil) - clasa adăugată de JS */
+.show-element {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0) translateY(0);
+}
+
+/* Responsive Mobil */
+@media (max-width: 768px) {
+    .info-features, .stats-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .info-text h2 {
+        font-size: 2.5rem;
+    }
+    
+    /* Pe mobil scoatem efectul fixed background pentru performanță */
+    .stats-section {
+        background-attachment: scroll; 
+    }
+}
+/*=====================HOME=======================*/
+/* --- CARUSEL RECENZII --- */
+.reviews-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    text-align: center;
+    overflow: hidden; /* Ascunde ce iese din ecran */
+}
+
+.section-header {
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-header h2 {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+.section-header p { font-size: 1.1rem; color: #666; }
+
+/* Wrapper Principal Carusel */
+.carousel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px; /* Loc pentru butoane stânga/dreapta */
+}
+
+.carousel-track-container {
+    overflow: hidden; /* Esențial pentru slider */
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px; /* Spațiu între carduri */
+}
+
+/* Slide Individual */
+.carousel-slide {
+    /* Pe desktop: 3 carduri minus spațiile */
+    min-width: calc(33.333% - 14px); 
+    box-sizing: border-box;
+}
+
+/* Cardul de Recenzie (Design identic) */
+.review-card {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left;
+    height: 100%; /* Să fie toate egale */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-icon { font-size: 1.5rem; color: #ffcc00; opacity: 0.5; margin-bottom: 15px; }
+.review-text { font-style: italic; color: #555; line-height: 1.5; margin-bottom: 20px; font-size: 0.95rem; }
+.stars { color: #ffcc00; margin-bottom: 15px; font-size: 0.9rem; }
+
+.client-info {
+    display: flex; align-items: center; gap: 15px;
+    border-top: 1px solid #e0e0e0; padding-top: 15px;
+}
+.client-info img { width: 45px; height: 45px; border-radius: 50%; }
+.client-info h4 { margin: 0; font-size: 1rem; color: #222; }
+.client-info span { font-size: 0.85rem; color: #888; }
+
+/* Butoane Navigare (< >) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: all 0.3s;
+}
+.carousel-btn:hover { background: #ffcc00; border-color: #ffcc00; color: white; }
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+
+
+
+.burger-icon {
+    display: none; 
+    color: white;
+    
+}
+
+
+/* Responsive Mobil */
+@media (max-width: 768px) {
+    .carousel-slide {
+        min-width: 100%; /* 1 singur card pe mobil */
+    }
+    .carousel-wrapper { padding: 0; } /* Scoatem padding-ul lateral */
+    .carousel-btn { display: none; } /* Ascundem săgețile pe mobil, dăm swipe (opțional) sau folosim doar puncte */
+    
+    /* Afișăm punctele de navigare pe mobil */
+    .carousel-dots {
+        display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+    }
+    .dot {
+        width: 10px; height: 10px; background: #ddd; border-radius: 50%;
+    }
+    .dot.active { background: #ffcc00; }
+
+    .cta-flex-container {
+        display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center; /* Centrează vertical elementele */
+            justify-content: space-between;
+            gap: 40px;
+        }
+}
+
+
+/* --- Stiluri pentru Mobil (sub 600px) --- */
+@media screen and (max-width: 1000px) {
+    .burger-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #292322; /* Fundalul listei */
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* --- 3. STAREA "OPEN" (Când meniul este deschis) --- */
+    /* Când navbar are clasa 'menu-open', totul devine negru/alb */
+    
+    .navbar.menu-open {
+        background-color:#292322; /* Bara de sus devine neagră */
+    }
+
+    .navbar.menu-open .logo {
+        color: white; /* Logo-ul devine alb */
+            
+    }
+
+    .navbar.menu-open .burger-icon {
+        color: white; /* Iconița devine albă */
+    }
+
+    .cta-section-new {
+        padding: 60px 20px; /* Reducem spațierea pe verticală */
+    }
+
+    .cta-flex-container {
+        flex-direction: column; /* Le așază unul sub altul */
+        text-align: center; /* Centrează textul */
+        gap: 30px; /* Spațiu între elemente */
+    }
+
+    /* Resetăm lățimile pentru a ocupa tot ecranul */
+    .cta-heading, 
+    .cta-text, 
+    .cta-button-wrapper {
+        width: 100%;
+        flex: auto; /* Anulăm flex-ul de desktop */
+        text-align: center; /* Asigurăm centrarea */
+    }
+
+    /* Ajustăm mărimea fontului pentru titlu pe mobil */
+    .cta-heading h2 {
+        font-size: 2rem; 
+        margin-bottom: 10px;
+    }
+
+    /* Asigurăm că butonul e centrat */
+    .cta-button-wrapper {
+        margin-top: 10px;
+    }
+
+    #sc-box1{
+        display: flex;
+        justify-content: center;
+    }
+
+#contactForm .gdpr,
+#contactForm input,
+#contactForm button {
+  grid-column: span 2;
+}
+
+
+.footer-column h2{
+    font-size: 1rem;
+}
+
+}

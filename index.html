@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQQTQ8V6YH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NQQTQ8V6YH');
+    </script>
+    <title>Ach Residence Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo"
+            style="color: white; font-size: 24px; font-weight: bold; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); font-size:3rem;">
+            AchResidence
+        </div>
+
+        <div class="burger-icon" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" data-key="home">Acasă</a></li>
+            <li><a href="about.html" data-key="about">Despre noi</a></li>
+            <li><a href="activities.html" data-key="activities">Activități</a></li>
+            <li><a href="contact.html" data-key="contact">Contact</a></li>
+            <li><a href="reserve.html" class="btn-reserve" data-key="reserve">Rezervă acum</a></li>
+
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLanguage('ro')">RO</button>
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="hero-slider">
+        <div class="slides-container" id="slidesContainer">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+        <div class="hero-content">
+            <h1 style="font-size: 4rem;" data-key="hero_title">Bine ai venit</h1>
+            <p style="font-size: 1.5rem;" data-key="hero_subtitle">Descoperă locația noastră unică</p>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        /* --- LOGICA PENTRU SLIDER --- */
+        let slideIndex = 0;
+        const slidesContainer = document.getElementById('slidesContainer');
+        const totalSlides = 3; // Numărul de poze
+        let autoSlideInterval;
+
+        // Funcția care mișcă sliderul
+        function updateSlider() {
+            // Mutăm containerul cu procentaje (0%, -100%, -200%)
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100 / totalSlides}%)`;
+            // Deoarece containerul are width 300%, fiecare slide e 1/3, deci logica CSS e un pic diferită.
+            // Mai simplu: containerul e 300%. Mutăm cu -33.33% pt slide 2? 
+            // Nu, am setat width container 300%. Un slide are 100vw.
+            // Deci mutăm cu: slideIndex * 100vw.
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100}vw)`;
+        }
+
+        function moveSlide(direction) {
+            slideIndex += direction;
+
+            // Loop infinit
+            if (slideIndex >= totalSlides) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = totalSlides - 1;
+            }
+
+            updateSlider();
+            resetTimer(); // Resetăm cronometrul când dăm click manual
+        }
+
+        // Pornire automată
+        function startTimer() {
+            autoSlideInterval = setInterval(() => {
+                moveSlide(1);
+            }, 3000); // 3 secunde
+        }
+
+        // Resetare timer la click manual (ca să nu sară poza imediat după ce ai dat click)
+        function resetTimer() {
+            clearInterval(autoSlideInterval);
+            startTimer();
+        }
+
+        // Inițializare
+        startTimer();
+
+    </script>
+
+    <script src="script.js"></script>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="info-text hidden-element from-left">
+                <h2 data-key="info_title">Experiența Ach Residence</h2>
+                <p data-key="info_desc">
+                    Fie că plănuiești o petrecere legendară sau cauți un refugiu liniștit pentru a te deconecta de
+                    agitația urbană,
+                    locația noastră se transformă după nevoile tale. Îți oferim cadrul perfect unde amintirile prind
+                    viață, într-un decor modern și primitor.
+                </p>
+            </div>
+
+            <div class="info-features">
+                <div class="feature-box hidden-element from-right">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                    <h3 data-key="feat_party_title">Petreceri Private</h3>
+                    <p data-key="feat_party_desc">Sistem audio performant, lumini ambientale și spațiu generos pentru
+                        dans.</p>
+                </div>
+                <div class="feature-box hidden-element from-right" style="transition-delay: 200ms;">
+                    <i class="fa-solid fa-water"></i>
+                    <h3 data-key="feat_relax_title">Relaxare </h3>
+                    <p data-key="feat_relax_desc">Zonă de lounge, ciubăr și liniște deplină în mijlocul naturii.</p>
+                </div>
+                <div class="feature-box hidden-element from-right" style="transition-delay: 400ms;">
+                    <i class="fa-solid fa-bed"></i>
+                    <h3 data-key="feat_comfort_title">Confort Premium</h3>
+                    <p data-key="feat_comfort_desc">Camere spațioase și moderne pentru odihna de după eveniment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-overlay"></div>
+        <div class="container stats-grid">
+
+            <div class="stat-item hidden-element from-bottom" style=" color: white;">
+                <i class="fa-solid fa-calendar-check"></i>
+                <div class="counter" data-target="5">0</div>
+                <p data-key="stats_years">Ani de Activitate</p>
+            </div>
+
+            <div class="stat-item hidden-element from-bottom" style="transition-delay: 200ms; color: white;">
+                <i class="fa-solid fa-users"></i>
+                <div class="counter" data-target="450">0</div>
+                <p data-key="stats_clients">Clienți Mulțumiți</p>
+            </div>
+
+            <div class="stat-item hidden-element from-bottom" style="transition-delay: 400ms; color: white;">
+                <i class="fa-solid fa-cake-candles"></i>
+                <div class="counter" data-target="120">0</div>
+                <p data-key="stats_birthdays">Zile de Naștere</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container">
+
+            <div class="section-header hidden-element from-bottom">
+                <h2 data-key="reviews_title">Ce spun oaspeții noștri</h2>
+                <p data-key="reviews_subtitle">Părerile celor care ne-au trecut pragul sunt cartea noastră de vizită.
+                </p>
+            </div>
+
+            <div class="carousel-wrapper hidden-element from-bottom" style="transition-delay: 200ms;">
+
+                <button class="carousel-btn prev-btn" id="prevReview"><i class="fa-solid fa-chevron-left"></i></button>
+
+                <div class="carousel-track-container">
+                    <ul class="carousel-track" id="reviewsTrack">
+
+                        <li class="carousel-slide">
+                            <div class="review-card">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="review-text" data-key="review_1_text">"Am organizat majoratul fiicei mele aici
+                                    și a fost totul la superlativ! Sistemul de sunet este genial, nu am deranjat pe
+                                    nimeni, iar vila este foarte spațioasă."</p>
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i></div>
+                                <div class="client-info">
+                                    <img src="https://ui-avatars.com/api/?name=Andrei+Popa&background=0D8ABC&color=fff"
+                                        alt="Client">
+                                    <div>
+                                        <h4>Andrei Popa</h4>
+                                        <span data-key="review_1_tag">Petrecere Privată</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="carousel-slide">
+                            <div class="review-card">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="review-text" data-key="review_2_text">"O oază de liniște. Am venit pentru un
+                                    weekend de relaxare cu prietenii. Ciubărul a fost atracția principală, iar curățenia
+                                    exemplară. Vom reveni!"</p>
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i></div>
+                                <div class="client-info">
+                                    <img src="https://ui-avatars.com/api/?name=Elena+M&background=D4AF37&color=fff"
+                                        alt="Client">
+                                    <div>
+                                        <h4>Elena M.</h4>
+                                        <span data-key="review_2_tag">Relaxare </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="carousel-slide">
+                            <div class="review-card">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="review-text" data-key="review_3_text">"Gazde foarte primitoare și o locație
+                                    modernă. Ne-a plăcut faptul că am avut intimitate totală. Ne-am simțit exact ca
+                                    acasă, dar mult mai răsfățați."</p>
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star-half-stroke"></i></div>
+                                <div class="client-info">
+                                    <img src="https://ui-avatars.com/api/?name=Mihai+D&background=222&color=fff"
+                                        alt="Client">
+                                    <div>
+                                        <h4>Mihai D.</h4>
+                                        <span data-key="review_3_tag">Teambuilding</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="carousel-slide">
+                            <div class="review-card">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="review-text" data-key="review_4_text">"Am petrecut Crăciunul aici cu toată
+                                    familia. Livingul imens ne-a permis să stăm toți la masă, iar atmosfera a fost
+                                    magică."</p>
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i></div>
+                                <div class="client-info">
+                                    <img src="https://ui-avatars.com/api/?name=Maria+T&background=c0392b&color=fff"
+                                        alt="Client">
+                                    <div>
+                                        <h4>Maria T.</h4>
+                                        <span data-key="review_4_tag">Vacanță Familie</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="carousel-slide">
+                            <div class="review-card">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="review-text" data-key="review_5_text">"Locația arată exact ca în poze, poate
+                                    chiar mai bine. Echipată cu absolut tot ce ai nevoie. Recomand pentru curățenie și
+                                    seriozitate."</p>
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i></div>
+                                <div class="client-info">
+                                    <img src="https://ui-avatars.com/api/?name=Alex+C&background=27ae60&color=fff"
+                                        alt="Client">
+                                    <div>
+                                        <h4>Alex & Cristina</h4>
+                                        <span data-key="review_5_tag">Cuplu</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <button class="carousel-btn next-btn" id="nextReview"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <div class="cta-section-new">
+        <div class="cta-flex-container">
+            <div class="cta-heading">
+                <h2 data-key="cta_title">Ti-am atras atentia?</h2>
+            </div>
+            <div class="cta-text">
+                <p data-key="cta_text">Evadează din cotidian și lasă-te învăluit de liniștea rurală. Te așteptăm cu
+                    experiențe autentice, confort deplin și amintiri care abia așteaptă să fie create.</p>
+            </div>
+            <div class="cta-button-wrapper">
+                <a href="reserve.html" class="cta-button-new" data-key="cta_btn">REZERVĂ ACUM</a>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-content">
+
+                <div class="footer-column logo-section">
+                    <img>
+                    <h1 class="logo" style="font-size: 40px;">AchResidence</h1>
+
+                    <p data-key="footer_desc">Tu aduci gașca noi aducem locatia.</p>
+
+                    <h2 style="margin-top:20px;" data-key="footer_social_title">Ne găsești și în social media</h2>
+
+                    <div id="sc-box1">
+                        <div id="facebook1">
+                            <a href="https://www.facebook.com/profile.php?id=100011245302227&locale=ro_RO"
+                                target="_blank">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                        <div id="instagram1">
+                            <a href="https://www.instagram.com/cezar_ces/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-column menu-section">
+                    <h3 data-key="footer_menu_title">Meniu Rapid</h3>
+                    <ul>
+                        <li><a href="index.html" data-key="home">Acasă</a></li>
+                        <li><a href="about.html" data-key="about">Despre noi</a></li>
+                        <li><a href="activities.html" data-key="activities">Activități</a></li>
+                        <li><a href="contact.html" data-key="contact">Contact</a></li>
+                        <li><a href="reserve.html" data-key="reserve">Rezervă acum</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column map-section">
+                    <h3 data-key="footer_map_title">Unde ne aflăm?</h3>
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps?q=46.3767332,26.9646146&z=17&output=embed"
+                            style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p data-key="footer_rights">© 2026 Achresidence. Toate drepturile rezervate.</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+
+</html>
