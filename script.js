@@ -10,7 +10,7 @@ function toggleMobileMenu() {
     navbar.classList.toggle('menu-open'); // Asta face bara neagră
     navLinks.classList.toggle('active');  // Asta arată meniul
 }
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQ62WXQunmrqvjm52bObiDmAVhPK7IdmgaSlcYnUt-NfGLn1iKL70493pOo7DnZ--S/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvDyfdue-F28O3BxgSjt7MSI6Xoxyd_QhnuHNxPo-p8Vbjy6PbNOrLZxK0BWH-P2kl/exec';
 const translations = {
     ro: {
         // --- Navbar & Hero ---
@@ -24,7 +24,7 @@ const translations = {
         // --- ABOUT SECTION (Gheorghe Doja) ---
         about_loc_subtitle: "Gheorghe Doja, Bacău",
         about_main_title: "Locul unde distracția se simte ca acasă",
-        about_desc_1: "La noi, conceptul este simplu: <strong>tu aduci gașca, noi aducem locația.</strong> Situată în zona liniștită din Gheorghe Doja, vila noastră este complet echipată pentru a găzdui atât petreceri memorabile, cât și zile de relaxare totală.",
+        about_desc_1: "La noi, conceptul este simplu: tu aduci gașca, noi aducem locația. Situată în zona liniștită din Gheorghe Doja, vila noastră este complet echipată pentru a găzdui atât petreceri memorabile, cât și zile de relaxare totală.",
         about_desc_2: "Nu ești la un hotel pretențios, ești la o cabană unde poți râde zgomotos. Am amenajat totul gândindu-ne la confortul grupului tău.",
         feat_capacity: "Capacitate mare", feat_hottub: "Ciubăr încălzit", feat_bbq_zone: "Zonă de grătar",
         feat_audio: "Sistem Audio", feat_neighbors: "Fără vecini apropiați", feat_kitchen: "Bucătărie utilată",
@@ -50,7 +50,7 @@ const translations = {
         contact_wa_desc: "Scrie-ne rapid un mesaj.",
         contact_wa_btn: "Deschide Chat",
         contact_email_title: "Email",
-        contact_email_desc: "Pentru oferte și detalii.",
+        contact_email_desc: "Pentru oferte și detalii: Ach.residence.contact@gmail.com",
 
         // --- Info Section ---
         about_title: "Despre noi", about_subtitle: "Afla cateva lucruri despre locatia noastra",
@@ -67,10 +67,10 @@ const translations = {
         // --- Reviews ---
         reviews_title: "Ce spun oaspeții noștri", reviews_subtitle: "Părerile celor care ne-au trecut pragul sunt cartea noastră de vizită.",
         review_1_text: '"Am organizat majoratul fiicei mele aici și a fost totul la superlativ! Sistemul de sunet este genial, nu am deranjat pe nimeni, iar vila este foarte spațioasă."', review_1_tag: "Petrecere Privată",
-        review_2_text: '"O oază de liniște. Am venit pentru un weekend de relaxare cu prietenii. Ciubărul a fost atracția principală, iar curățenia exemplară. Vom reveni!"', review_2_tag: "Relaxare",
+        review_2_text: '"The host was very helpful and accommodating , stayed late to help with check in. Responsive in communication.Would recommend and stay again !"', review_2_tag: "Vacanta",
         review_3_text: '"Gazde foarte primitoare și o locație modernă. Ne-a plăcut faptul că am avut intimitate totală. Ne-am simțit exact ca acasă, dar mult mai răsfățați."', review_3_tag: "Teambuilding",
         review_4_text: '"Am petrecut Crăciunul aici cu toată familia. Livingul imens ne-a permis să stăm toți la masă, iar atmosfera a fost magică."', review_4_tag: "Vacanță Familie",
-        review_5_text: '"Locația arată exact ca în poze, poate chiar mai bine. Echipată cu absolut tot ce ai nevoie. Recomand pentru curățenie și seriozitate."', review_5_tag: "Cuplu",
+        review_5_text: '"Robert is a great host, ready to help and always reachable. The place is as described, big, clean, nice outside territory - all in all good value for money. My parents were happy to have stayed there with their dogs."', review_5_tag: "Familie",
 
         // --- CTA & Contact Footer ---
         cta_title: "Ti-am atras atentia?", cta_text: "Evadează din cotidian și lasă-te învăluit de liniștea rurală. Te așteptăm cu experiențe autentice, confort deplin și amintiri care abia așteaptă să fie create.", cta_btn: "REZERVĂ ACUM",
@@ -116,7 +116,7 @@ gallery_subtitle:"Some photo from our location",
         contact_wa_desc: "Send us a quick message.",
         contact_wa_btn: "Open Chat",
         contact_email_title: "Email",
-        contact_email_desc: "For offers and details.",
+        contact_email_desc: "For offers and details: Ach.residence.contact@gmail.com",
 
         // --- Info Section ---
         about_title: "About us", about_subtitle: "Find out some stuff about our location",
@@ -133,10 +133,10 @@ gallery_subtitle:"Some photo from our location",
         // --- Reviews ---
         reviews_title: "What our guests say", reviews_subtitle: "The opinions of those who have visited us are our business card.",
         review_1_text: '"I organized my daughter\'s 18th birthday here and everything was superlative! The sound system is brilliant, we didn\'t disturb anyone, and the villa is very spacious."', review_1_tag: "Private Party",
-        review_2_text: '"An oasis of peace. We came for a relaxing weekend with friends. The hot tub was the main attraction, and the cleanliness was exemplary. We will be back!"', review_2_tag: "Relaxation",
+        review_2_text: '"The host was very helpful and accommodating , stayed late to help with check in. Responsive in communication.Would recommend and stay again !"', review_2_tag: "Travel",
         review_3_text: '"Very welcoming hosts and a modern location. We liked the fact that we had total privacy. We felt exactly like home, but much more pampered."', review_3_tag: "Teambuilding",
         review_4_text: '"We spent Christmas here with the whole family. The huge living room allowed us all to sit at the table, and the atmosphere was magical."', review_4_tag: "Family Vacation",
-        review_5_text: '"The location looks exactly like in the pictures, maybe even better. Equipped with absolutely everything you need. I recommend it for cleanliness and seriousness."', review_5_tag: "Couple",
+        review_5_text: '"Robert is a great host, ready to help and always reachable. The place is as described, big, clean, nice outside territory - all in all good value for money. My parents were happy to have stayed there with their dogs."', review_5_tag: "Family",
 
         // --- CTA & Contact Footer ---
         cta_title: "Did we catch your eye?", cta_text: "Escape the daily grind and embrace the rural tranquility. We await you with authentic experiences, full comfort, and memories waiting to be made.", cta_btn: "BOOK NOW",
@@ -297,33 +297,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. SETĂRI LIMBĂ
     const savedLang = localStorage.getItem('preferredLang');
     setLanguage(savedLang ? savedLang : 'ro');
+const slidesContainer = document.getElementById('slidesContainer');
 
-    // 2. SLIDER HERO
-    const slidesContainer = document.getElementById('slidesContainer');
-    if (slidesContainer) {
-        let slideIndex = 0;
-        const totalSlides = 3; 
-        let autoSlideInterval;
-        
-        function updateSlider() { slidesContainer.style.transform = `translateX(-${slideIndex * 100}vw)`; }
-        function moveSlide(direction) {
-            slideIndex += direction;
-            if (slideIndex >= totalSlides) slideIndex = 0;
-            else if (slideIndex < 0) slideIndex = totalSlides - 1;
-            updateSlider(); resetTimer();
+if (slidesContainer) {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length; // E mai bine să le numeri dinamic
+    let autoSlideInterval;
+
+    function updateSlider() {
+        // SCHIMBARE AICI: Folosește % în loc de vw
+        // Deoarece fiecare slide are min-width: 100%, mutăm containerul cu multipli de 100%
+        slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`; 
+    }
+
+    function moveSlide(direction) {
+        slideIndex += direction;
+
+        if (slideIndex >= totalSlides) {
+            slideIndex = 0;
+        } else if (slideIndex < 0) {
+            slideIndex = totalSlides - 1;
         }
-        function startTimer() { autoSlideInterval = setInterval(() => { moveSlide(1); }, 3000); }
-        function resetTimer() { clearInterval(autoSlideInterval); startTimer(); }
-        
-        // Butoane
-        const btnPrev = document.querySelector('.prev');
-        const btnNext = document.querySelector('.next');
-        if(btnPrev) btnPrev.addEventListener('click', () => moveSlide(-1));
-        if(btnNext) btnNext.addEventListener('click', () => moveSlide(1));
-        
+
+        updateSlider();
+        resetTimer();
+    }
+
+    function startTimer() {
+        autoSlideInterval = setInterval(() => {
+            moveSlide(1);
+        }, 3000);
+    }
+
+    function resetTimer() {
+        clearInterval(autoSlideInterval);
         startTimer();
     }
 
+    // Butoane (am scos addEventListener dublu din HTML onclick + JS)
+    // E mai curat să lași doar JS-ul:
+    const btnPrev = document.querySelector('.prev');
+    const btnNext = document.querySelector('.next');
+
+    // Scoate onclick="moveSlide(...)" din HTML dacă folosești liniile de mai jos
+    if (btnPrev) {
+        btnPrev.addEventListener('click', (e) => {
+            e.preventDefault(); // Previne comportamente ciudate pe mobil
+            moveSlide(-1);
+        });
+    }
+    
+    if (btnNext) {
+        btnNext.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveSlide(1);
+        });
+    }
+
+    startTimer();
+}
     // 3. ANIMAȚII SCROLL (SLIDE IN) - PARTEA PROBLEMĂ
     const hiddenElements = document.querySelectorAll('.hidden-element');
     
